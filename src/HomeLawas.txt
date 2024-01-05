@@ -1,0 +1,93 @@
+import React, { useEffect, useRef } from 'react';
+import Header from '../../component/header/Header';
+import ProductCard from '../../component/productCard/ProductCard';
+import Hero from './Hero';
+import './Home.css';
+import Products from '../../DataProducts';
+import { gsap, Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'; // Pastikan telah mengimpor ScrollTrigger
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Home = () => {
+  const productListRef = useRef(null);
+  const productCardsRef = useRef([]);
+
+  useGSAP(() => {
+    const productCards = document.querySelectorAll('.ProductCard__Container');
+
+    productCards.forEach((card, index) => {
+      const duration = (index % 4) * 0.3 + 0.3; // Durasi berdasarkan indeks produk
+
+      const cardTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 80%',
+          markers: true,
+        },
+      });
+
+      cardTimeline.from(card, {
+        opacity: 0,
+        y: 50,
+        duration,
+        ease: Power3.easeOut,
+      });
+    });
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <Hero />
+      <div className="Images__Banner">
+        <img
+          src="https://www.russ.co.id/cdn/shop/files/WE_MAKE_EVERYTHING_1400x.jpg?v=1697199557"
+          alt="banner"
+        />
+      </div>
+      <div className="Colection__Wrapper">
+        <div className="left">
+          <div className="Wrapper__Contain__Button">
+            <p>RUSS ADULT</p>
+            <button>View Produk</button>
+          </div>
+        </div>
+        <div className="right">
+          <div className="Wrapper__Contain__Button">
+            <p>RUSS KIDS</p>
+            <button>View Produk</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="Text__Center">
+        <h3 className="Text__Limited">LIMITED TIME! EXTRA 85% OFF</h3>
+        <h1 className="Text__Promo">12.12 SALE</h1>
+      </div>
+
+      <div className="ProductList__Container" ref={productListRef}>
+        <div className="Wrapper__ProductList">
+          {Products.slice(0, 8).map((item, i) => (
+            <ProductCard
+              products={item}
+              key={i}
+              index={i}
+              ref={(el) => (productCardsRef.current[i] = el)}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="Button__ViewMoreDetail__Wrapper">
+        <div className="Button__ViewMoreDetail">
+          <p>VIEW MORE DETAIL</p>
+          <div className="background"></div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Home;

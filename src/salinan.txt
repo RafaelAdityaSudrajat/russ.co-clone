@@ -1,0 +1,37 @@
+<div className="Button__ViewMoreDetail__Wrapper">
+        <div className="Button__ViewMoreDetail">
+          <p>VIEW MORE DETAIL</p>
+          <div className="background"></div>
+        </div>
+      </div>
+
+      <div className="Banner__NewARival"></div>
+      <div className="Text__Center">
+        <h3 className="Text__Limited">LATEST COLLECTION WITH EXTRA 68% OFF</h3>
+        <h1 className="Text__Promo">NEW ARRIVAL</h1>
+      </div>
+
+      {<ProductList products={Products.slice(9, 17)} />}
+
+      <div className="Button__ViewMoreDetail__Wrapper">
+        <div className="Button__ViewMoreDetail">
+          <p>VIEW MORE PRODUCTS</p>
+          <div className="background"></div>
+        </div>
+      </div>
+
+      <div className="Slogan_Container">
+        <div className="Slogan__Wrapper">
+          <p className="Text__Slogan">
+            "Seperti slogan mereka, gua pake russ karena bangga sama diri gue
+            atas apa semua yang gue kerjain."
+          </p>
+          <div className="Slogan__WrapperCircle">
+            {Array.from({ length: 3 }).map((item, i) => (
+              <div className="circle"></div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <Footer />

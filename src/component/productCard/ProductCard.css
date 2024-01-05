@@ -1,0 +1,62 @@
+.ProductCard__Container {
+  width: 100%;
+  height: 408px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ProductCard__Container > .Wrapper_ProductCard {
+  width: 95%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  object-position: center;
+}
+
+.ProductCard__Container > .Wrapper_ProductCard > .img {
+  height: 80%;
+}
+
+.Wrapper_ProductCard > .img > img {
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.ProductCard__Container > .Wrapper_ProductCard > .contain {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.Wrapper_ProductCard > .contain > .ProductCard__Title {
+  white-space: nowrap; /* Teks tidak dibungkus ke baris baru */
+  overflow: hidden; /* Teks yang melebihi lebar kontainer akan tersembunyi */
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  text-align: center;
+  width: 80%;
+}
+
+.Wrapper_ProductCard > .contain > .Prices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.contain > .Prices > .ProductCard__Price {
+  font-weight: 500;
+  color: red;
+}
+
+.contain > .Prices > .ProductCard__Diskon {
+  padding-inline: 5px;
+}

@@ -1,0 +1,83 @@
+.Container__Hero {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.Container__Hero img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  object-position: top;
+}
+
+.Container__Hero img.active {
+  opacity: 1;
+}
+
+.Container__Hero img.fade {
+  opacity: 0;
+}
+
+.Container__Circle {
+  position: absolute;
+  bottom: 20px;
+  left: 20px; /* Ubah nilai right sesuai kebutuhan */
+  display: flex;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+  border-radius: 100%;
+  margin-right: 20px; /* Atur ruang di antara elemen "circle" */
+  cursor: pointer;
+}
+
+.circle.active {
+  background-color: white;
+}
+
+.Container__Hero > button {
+  position: absolute;
+  bottom: 30px;
+  right: 50%;
+  transform: translateX(50%);
+  outline: none;
+  border: none;
+  padding: 20px 40px;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+}
+
+.Container__Hero > button:hover {
+  background-color: transparent;
+  border: 1px white solid;
+  color: white;
+  cursor: pointer;
+}
+
+@media (width < 992px) {
+  .Container__Hero > button {
+    padding: 13px 13px;
+    font-size: 0.7rem;
+  }
+
+  .Container__Hero {
+    height: 35vh;
+  }
+}
+
+@media (width < 600px) {
+  .Container__Hero {
+    height: 50vh;
+  }
+}
